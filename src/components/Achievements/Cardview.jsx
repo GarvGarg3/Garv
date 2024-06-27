@@ -1,36 +1,44 @@
-import React from 'react'
-import {Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button} from "reactstrap"
+import React from 'react';
+import { Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle } from "reactstrap";
+import './Achievementcard.css';
 
-function Cardview () {
-  return (
-    <div>
-        <Card>
-            <CardImg
-            alt="Card image cap"
-            src="https://picsum.photos/256/186"
-            top
-            width="100%"
-            />
-            <CardBody>
-            <CardTitle tag="h5">
-                Card title
-            </CardTitle>
-            <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-            >
-                Card subtitle
-            </CardSubtitle>
-            <CardText>
-                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-            </CardText>
-            <Button>
-                Button
-            </Button>
-            </CardBody>
-        </Card>
-    </div>
-  )
+function Cardview({
+    title,
+    subtitle,
+    image,
+    cardText,
+    children,
+}) {
+    return (
+        <div className='achievementCard'>
+            <Card className="bg-dark text-white">
+                <CardImg
+                    alt="Card image cap"
+                    src={image}
+                    top
+                    width="100%"
+                />
+                <CardBody>
+                    <CardTitle tag="h5" className="achievementCardTitle">
+                        {title}
+                    </CardTitle>
+                    <CardSubtitle
+                        className="mb-2 achievementCardSubtitle"
+                        tag="h6"
+                    >
+                        {subtitle}
+                    </CardSubtitle>
+                    <CardText className="achievementCardText">
+                        {cardText}
+                    </CardText>
+                    {children}
+                </CardBody>
+            </Card>
+        </div>
+    );
 }
 
-export default Cardview
+export default Cardview;
+
+
+
